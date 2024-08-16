@@ -1,6 +1,10 @@
 # docker-mssql
 
-Dockerized MSSQL container for development purposes. 
+Dockerized MSSQL container for development purposes.
+
+_What's so special?_
+
+- Creates multiple databases on startup automatically :D
 
 ## Usage
 
