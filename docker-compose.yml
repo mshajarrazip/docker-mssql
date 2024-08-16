@@ -12,3 +12,4 @@ services:
       - "${PORT:-1433}:1433"
     volumes:
       - "${BASE_DIR?Variable not set}/db:/var/opt/mssql/data"
+    restart: always
