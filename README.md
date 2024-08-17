@@ -25,4 +25,24 @@ _What's so special?_
     - **Username**: `sa`
     - **Password**: `Password123`
 
+### Tips & Tricks
+
+1. Restoring a database from [.bak]() file:
+    - Copy the [.bak]() file to the base directory. The `/mnt` directory in the container is mounted to `${BASE_DIR}/docker-mssql/mnt`, so you can put the file there.
+    - Perform restore:
+        - Option 1: Run the following command:
+    
+            ```bash
+            docker exec -it <container_name> /bin/bash -c "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Password123 -Q \"RESTORE DATABASE <database_name> FROM DISK='/var/opt/mssql/backup/<backup_file>.bak' WITH MOVE '<logical_name>' TO '/var/opt/mssql/data/<database_name>.mdf', MOVE '<logical_name>_log' TO '/var/opt/mssql/data/<database_name>_log.ldf'\""
+            ```
+            > Replace `<container_name>`, `<database_name>`, `<backup_file>`, and `<logical_name>` with the appropriate values.
+
+        - Option 2: If you are using ssms as your sql client, you can restore the database from the backup file using the GUI:
+
+            - Right-click on the `Databases` node in the Object Explorer.
+            - Select `Restore Database...`.
+            - In the `General` page, select `Device` and click on the `...` button.
+            - Click on the `Add` button and select the backup file.
+            - Click on the `OK` button.
+            - Click on the `OK` button to restore the database.
 

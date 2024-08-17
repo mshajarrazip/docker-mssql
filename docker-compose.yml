@@ -11,5 +11,6 @@ services:
       # From other containers in the same network, do db:1433
       - "${PORT:-1433}:1433"
     volumes:
-      - "${BASE_DIR?Variable not set}/db:/var/opt/mssql/data"
+      - "${BASE_DIR?Variable not set}/docker-mssql/mnt:/mnt"
+      - "${BASE_DIR?Variable not set}/docker-mssql/db:/var/opt/mssql/data"
     restart: always
