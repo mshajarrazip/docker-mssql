@@ -20,7 +20,9 @@ _What's so special?_
     - `BASE_DIR`: For persistence, this path will be mounted to the container. It is where the database files will be stored.
 1. Using your favourite sql client, you may now connect to the database using the following credentials:
     - **Server**: `localhost``
+        > If you are using WSL, use the IP address of the host machine instead of `localhost` e.g. use `hostname -I` to get the IP address.
     - **Port**: _The port you set in the environment variables._
     - **Username**: `sa`
     - **Password**: `Password123`
+
 
